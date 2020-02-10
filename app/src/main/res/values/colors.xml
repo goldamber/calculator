@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="pureWhite">#FFF</color>
     <color name="pWhite">#F0F5F8</color>
     <color name="pDelphiniumBlue">#669DB2</color>
     <color name="pAtmosphere">#A99C94</color>

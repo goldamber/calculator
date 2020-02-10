@@ -4,4 +4,23 @@
     <string name="strC">C</string>
     <string name="strDel">←</string>
     <string name="strEqual">=</string>
+
+    <string name="str7">7</string>
+    <string name="str8">8</string>
+    <string name="str9">9</string>
+    <string name="strDiv">/</string>
+
+    <string name="str4">4</string>
+    <string name="str5">5</string>
+    <string name="str6">6</string>
+    <string name="strMul">*</string>
+
+    <string name="str3">1</string>
+    <string name="str2">2</string>
+    <string name="str1">3</string>
+    <string name="strMin">-</string>
+
+    <string name="str0">0</string>
+    <string name="strDot">.</string>
+    <string name="strAdd">+</string>
 </resources>
