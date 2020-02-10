@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calculator</string>
+
+    <string name="strC">C</string>
+    <string name="strDel">←</string>
+    <string name="strEqual">=</string>
+</resources>

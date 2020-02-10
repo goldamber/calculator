@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/pWhite"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:padding="10sp"
+        android:textSize="50sp"
+        android:textAlignment="textEnd"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="170dp" />
+
+    <TableLayout
+        android:id="@+id/tblButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:padding="5sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <TableRow
+            android:id="@+id/trFunc"
+            android:padding="5sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/btnC"
+                android:layout_margin="5sp"
+                android:background="@color/pAtmosphere"
+                android:textColor="@color/pWhite"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/strC" />
+
+            <Button
+                android:id="@+id/btnDel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:textSize="20sp"
+                android:background="@color/pAtmosphere"
+                android:text="@string/strDel"
+                android:textColor="@color/pWhite"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnEuqal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:textSize="20sp"
+                android:background="@color/pAtmosphere"
+                android:text="@string/strEqual"
+                android:textColor="@color/pWhite"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
