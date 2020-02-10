@@ -13,9 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="5sp"
         android:padding="20sp"
-        android:textSize="55sp"
+        android:textSize="100sp"
+        android:maxLines="1"
+        android:gravity="end|center"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform"
         android:background="@color/pureWhite"
-        android:textAlignment="textEnd"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,36 +57,39 @@
 
             <Button
                 android:id="@+id/btnC"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@color/pAtmosphere"
                 android:text="@string/strC"
                 android:textColor="@color/pWhite"
                 android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnDel"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@color/pAtmosphere"
                 android:text="@string/strDel"
                 android:textColor="@color/pWhite"
                 android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnEuqal"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
                 android:layout_margin="5sp"
                 android:background="@color/pAtmosphere"
                 android:text="@string/strEqual"
                 android:textColor="@color/pWhite"
                 android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
 
         </TableRow>
@@ -101,7 +109,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str7"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btn8"
@@ -111,7 +120,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str8"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp"/>
 
             <Button
                 android:id="@+id/btn9"
@@ -121,7 +131,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str9"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btnDiv"
@@ -131,7 +142,8 @@
                 android:background="@color/pCoral"
                 android:text="@string/strDiv"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp"
+                android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -150,7 +162,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str4"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btn5"
@@ -160,7 +173,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str5"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btn6"
@@ -170,7 +184,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str6"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btnMul"
@@ -180,7 +195,8 @@
                 android:background="@color/pCoral"
                 android:text="@string/strMul"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp"
+                android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -199,7 +215,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str1"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btn2"
@@ -209,7 +226,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str2"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btn3"
@@ -219,7 +237,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str3"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btnMin"
@@ -229,7 +248,8 @@
                 android:background="@color/pCoral"
                 android:text="@string/strMin"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp"
+                android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -238,7 +258,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/btn0"
@@ -249,7 +269,8 @@
                 android:text="@string/str0"
                 android:layout_span="2"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btnDot"
@@ -259,7 +280,8 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/strDot"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp" />
+                android:textSize="40sp"
+                android:padding="10sp" />
 
             <Button
                 android:id="@+id/btnAdd"
@@ -269,7 +291,8 @@
                 android:background="@color/pCoral"
                 android:text="@string/strAdd"
                 android:textColor="@color/pWhite"
-                android:textSize="20sp"
+                android:textSize="40sp"
+                android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
 
