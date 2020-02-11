@@ -55,17 +55,24 @@ public class MainActivity extends AppCompatActivity {
             Button btnFunc = (Button) v;
             boolean isFunc = false;     // check if the input character was an operator
 
+            if (btnFunc.getText().toString().equals("*") || btnFunc.getText().toString().equals("/") || btnFunc.getText().toString().equals("-") || btnFunc.getText().toString().equals("+"))
+                isFunc = true;
+
+            txtRes.setText(txtRes.getText().toString() + (isFunc? " ":""));
+
             // Calculate data.
             String res = Calculate(btnFunc.getText().toString());
             // Save data if there is no errors.
-            if (!txtRes.getText().toString().startsWith("ERROR")) {
-                txtRes.setText(txtRes.getText().toString() + res);
-                SaveData(txtRes.getText().toString());
-            }
-            else
-                txtRes.setTextColor(getResources().getColor(R.color.pCoral));
+            if (res.startsWith("ERROR"))
+                throw new Exception(res);
+
+            txtRes.setText(txtRes.getText().toString() + res + (isFunc? " ":""));
+            txtRes.setText(Calculate(txtRes.getText().toString()));
+            SaveData(txtRes.getText().toString());
         } catch (Exception ex) {
             Log.e(TAG, ex.getMessage());
+            txtRes.setTextColor(getResources().getColor(R.color.pCoral));
+            txtRes.setText(ex.getMessage());
         }
     }
     // Remove one character.
@@ -116,34 +123,39 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception ex) {
             return "ERROR: " + ex.getMessage();
         }
+
         // Test if the calculation can be performed (the input contains both operands).
-        if (arr.length % 2 == 0)
-            return str;
-        // Get the second operand and perform the calculations.
-        try {
-            _secondOperand = Float.parseFloat(arr[2]);
-            switch (arr[1]) {
-                case "*":
-                    res = Float.toString(_firstOperand * _secondOperand);
-                    break;
+        if (arr.length % 2 == 0 && arr.length > 3) {
+            // Perform calculations.
+            try {
+                // Get the second operand.
+                _secondOperand = Float.parseFloat(arr[2]);
 
-                case "/":
-                    res = Float.toString(_firstOperand / _secondOperand);
-                    break;
+                switch (arr[1]) {
+                    case "*":
+                        res = Float.toString(_firstOperand * _secondOperand);
+                        break;
 
-                case "+":
-                    res = Float.toString(_firstOperand + _secondOperand);
-                    break;
+                    case "/":
+                        if (_secondOperand == 0)
+                            return "ERROR: division by 0!";
+                        res = Float.toString(_firstOperand / _secondOperand);
+                        break;
 
-                case "-":
-                    res = Float.toString(_firstOperand - _secondOperand);
-                    break;
+                    case "+":
+                        res = Float.toString(_firstOperand + _secondOperand);
+                        break;
+
+                    case "-":
+                        res = Float.toString(_firstOperand - _secondOperand);
+                        break;
+                }
+            } catch (Exception ex) {
+                return "ERROR: " + ex.getMessage();
             }
-        } catch (Exception ex) {
-            return "ERROR: " + ex.getMessage();
+            return res + " " + arr[3] + " ";
         }
-
-        return res;
+        return str;
     }
 
     // Save data to the shared preferences.
