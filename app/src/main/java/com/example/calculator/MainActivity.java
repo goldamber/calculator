@@ -61,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
             txtRes.setText(txtRes.getText().toString() + (isFunc? " ":""));
 
             // Calculate data.
-            String res = Calculate(btnFunc.getText().toString());
+            String res = Calculate(btnFunc.getText().toString(), false);
             // Save data if there is no errors.
             if (res.startsWith("ERROR"))
                 throw new Exception(res);
 
             txtRes.setText(txtRes.getText().toString() + res + (isFunc? " ":""));
-            txtRes.setText(Calculate(txtRes.getText().toString()));
+            txtRes.setText(Calculate(txtRes.getText().toString(), false));
             SaveData(txtRes.getText().toString());
         } catch (Exception ex) {
             Log.e(TAG, ex.getMessage());
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             if (txtRes.getText().toString().isEmpty())
                 throw new Exception("there is nothing to erase!");
 
-            txtRes.setText(Calculate(txtRes.getText().toString().substring(0, txtRes.getText().toString().length() - 1)));
+            txtRes.setText(Calculate(txtRes.getText().toString().substring(0, txtRes.getText().toString().length() - 1), false));
             SaveData(txtRes.getText().toString());
         } catch (Exception ex) {
             txtRes.setTextColor(getResources().getColor(R.color.pCoral));
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // Clear the input.
     public void OnCButtonClick(View v){
-        txtRes.setText(Calculate(""));
+        txtRes.setText(Calculate("", false));
         SaveData(txtRes.getText().toString());
     }
 
@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
         if (txtRes.getText().toString().startsWith("ERROR"))
             return;
 
-        txtRes.setText(Calculate(txtRes.getText().toString()));
+        txtRes.setText(Calculate(txtRes.getText().toString(), true));
         if (!txtRes.getText().toString().startsWith("ERROR"))
             SaveData(txtRes.getText().toString());
     }
-    private String Calculate(String str) {
+    private String Calculate(String str, boolean eq) {
         // Check to see if the input is empty.
         if (!str.contains(" "))
             return str;
@@ -122,6 +122,37 @@ public class MainActivity extends AppCompatActivity {
             _firstOperand = Float.parseFloat(arr[0]);
         } catch (Exception ex) {
             return "ERROR: " + ex.getMessage();
+        }
+
+        // If 'Equals' button pressed.
+        if (eq) {
+            try {
+                // Get the second operand.
+                _secondOperand = Float.parseFloat(arr[2]);
+
+                switch (arr[1]) {
+                    case "*":
+                        res = Float.toString(_firstOperand * _secondOperand);
+                        break;
+
+                    case "/":
+                        if (_secondOperand == 0)
+                            return "ERROR: division by 0!";
+                        res = Float.toString(_firstOperand / _secondOperand);
+                        break;
+
+                    case "+":
+                        res = Float.toString(_firstOperand + _secondOperand);
+                        break;
+
+                    case "-":
+                        res = Float.toString(_firstOperand - _secondOperand);
+                        break;
+                }
+            } catch (Exception ex) {
+                return "ERROR: " + ex.getMessage();
+            }
+            return res;
         }
 
         // Test if the calculation can be performed (the input contains both operands).
