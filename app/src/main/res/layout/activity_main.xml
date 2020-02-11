@@ -41,7 +41,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:gravity="center"
-        android:padding="5sp"
+        android:padding="2sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,10 +61,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@color/pAtmosphere"
+                android:onClick="OnCButtonClick"
                 android:padding="10sp"
                 android:text="@string/strC"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <Button
@@ -73,10 +74,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:background="@color/pAtmosphere"
+                android:onClick="OnDelButtonClick"
+                android:padding="10sp"
                 android:text="@string/strDel"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
-                android:padding="10sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <Button
@@ -86,10 +88,11 @@
                 android:layout_gravity="center_vertical|end"
                 android:layout_margin="5sp"
                 android:background="@color/pAtmosphere"
+                android:onClick="OnEuqalButtonClick"
+                android:padding="10sp"
                 android:text="@string/strEqual"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
-                android:padding="10sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
         </TableRow>
@@ -110,7 +113,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str7"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -122,7 +125,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str8"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp"/>
 
             <Button
@@ -134,7 +137,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str9"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -146,7 +149,7 @@
                 android:background="@color/pCoral"
                 android:text="@string/strDiv"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
@@ -167,7 +170,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str4"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -179,7 +182,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str5"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -191,7 +194,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str6"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -203,7 +206,7 @@
                 android:background="@color/pCoral"
                 android:text="@string/strMul"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
@@ -224,7 +227,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str1"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -236,7 +239,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str2"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -248,7 +251,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/str3"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -260,7 +263,7 @@
                 android:background="@color/pCoral"
                 android:text="@string/strMin"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
@@ -282,7 +285,7 @@
                 android:text="@string/str0"
                 android:layout_span="2"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -294,7 +297,7 @@
                 android:background="@color/pDelphiniumBlue"
                 android:text="@string/strDot"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp" />
 
             <Button
@@ -306,7 +309,7 @@
                 android:background="@color/pCoral"
                 android:text="@string/strAdd"
                 android:textColor="@color/pWhite"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:padding="10sp"
                 android:textStyle="bold" />
         </TableRow>
