@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private final String TAG = "CalcErrTag";     // error tag
     private final String KEY = "CalcData";      // key for the shared preferences
     private SharedPreferences sharedPref;       // shared preferences
+    private float _firstOperand, _secondOperand;
 
     Button btnC, btnDel, btnRes;
     TextView txtRes;
@@ -54,17 +55,15 @@ public class MainActivity extends AppCompatActivity {
             Button btnFunc = (Button) v;
             boolean isFunc = false;     // check if the input character was an operator
 
-            if (btnFunc.getText().toString().equals("*") || btnFunc.getText().toString().equals("/") || btnFunc.getText().toString().equals("-") || btnFunc.getText().toString().equals("+"))
-                isFunc = true;
-
-            txtRes.setText(txtRes.getText().toString() + (isFunc ? " " : "") + btnFunc.getText().toString() + (isFunc ? " " : ""));
-
-            // Calculate and save data.
-            if (isFunc)
-                txtRes.setText(Calculate(txtRes.getText().toString()));
-
-            if (!txtRes.getText().toString().startsWith("ERROR"))
+            // Calculate data.
+            String res = Calculate(btnFunc.getText().toString());
+            // Save data if there is no errors.
+            if (!txtRes.getText().toString().startsWith("ERROR")) {
+                txtRes.setText(txtRes.getText().toString() + res);
                 SaveData(txtRes.getText().toString());
+            }
+            else
+                txtRes.setTextColor(getResources().getColor(R.color.pCoral));
         } catch (Exception ex) {
             Log.e(TAG, ex.getMessage());
         }
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             if (txtRes.getText().toString().isEmpty())
                 throw new Exception("there is nothing to erase!");
 
-            txtRes.setText(txtRes.getText().toString().substring(0, txtRes.getText().toString().length() - 2));
+            txtRes.setText(Calculate(txtRes.getText().toString().substring(0, txtRes.getText().toString().length() - 1)));
             SaveData(txtRes.getText().toString());
         } catch (Exception ex) {
             txtRes.setTextColor(getResources().getColor(R.color.pCoral));
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // Clear the input.
     public void OnCButtonClick(View v){
-        txtRes.setText("");
+        txtRes.setText(Calculate(""));
         SaveData(txtRes.getText().toString());
     }
 
@@ -101,14 +100,47 @@ public class MainActivity extends AppCompatActivity {
             SaveData(txtRes.getText().toString());
     }
     private String Calculate(String str) {
-        String res = "";
-
-        String[] arr = str.split(" ");
-        if (arr.length%2 == 0)
+        // Check to see if the input is empty.
+        if (!str.contains(" "))
             return str;
 
-        for (String item: arr) {
+        String res = "";
+        String[] arr = str.split(" ");
 
+        // Test the input.
+        if (arr[0].startsWith(".") || arr[0].equals("*") || arr[0].equals("+") || arr[0].equals("-") || arr[0].equals("/"))
+            return "ERROR: Wrong input!";
+        // Get the first operand.
+        try {
+            _firstOperand = Float.parseFloat(arr[0]);
+        } catch (Exception ex) {
+            return "ERROR: " + ex.getMessage();
+        }
+        // Test if the calculation can be performed (the input contains both operands).
+        if (arr.length % 2 == 0)
+            return str;
+        // Get the second operand and perform the calculations.
+        try {
+            _secondOperand = Float.parseFloat(arr[2]);
+            switch (arr[1]) {
+                case "*":
+                    res = Float.toString(_firstOperand * _secondOperand);
+                    break;
+
+                case "/":
+                    res = Float.toString(_firstOperand / _secondOperand);
+                    break;
+
+                case "+":
+                    res = Float.toString(_firstOperand + _secondOperand);
+                    break;
+
+                case "-":
+                    res = Float.toString(_firstOperand - _secondOperand);
+                    break;
+            }
+        } catch (Exception ex) {
+            return "ERROR: " + ex.getMessage();
         }
 
         return res;
